@@ -1,0 +1,67 @@
+
+### Сохранение новой книнги с контактами
+POST http://localhost:8080/book/save
+Content-Type: application/json
+
+{
+  "name": "book_3",
+  "contacts": [
+    {
+      "name": "contact_1",
+      "phone": "12345678999"
+    },
+    {
+      "name": "contact_2",
+      "phone": "12345678999",
+      "email": "ex@gmail.com"
+    }
+  ]
+}
+
+### Сохранение новой книнги с контактами. С ошибками валидации
+
+POST http://localhost:8080/book/save
+Content-Type: application/json
+
+{
+  "name": "book_4",
+  "contacts": [
+    {
+      "name": "contact_1",
+      "phone": "12345678999"
+    },
+    {
+      "name": "contact_2",
+      "phone": "12345678999",
+      "email": "mail.com"
+    }
+  ]
+}
+
+### Сохранение контакта в рамках книги с uuid 5e622d62-c70b-460b-aeda-9657566419a3
+
+POST http://localhost:8080/contact/bc5bac60-68c4-49f8-92d4-9e4bb806089c/save
+Content-Type: application/json
+
+{
+  "name": "contact_3",
+  "phone": "12345678999"
+}
+
+### Добавление коннтактов в существующий справочник
+
+POST http://localhost:8080/contact/1c7145f9-fb96-4d35-a86a-62155e9be652/list/save
+Content-Type: application/json
+
+[
+  {
+    "name": "contact_3",
+    "phone": "12345678999"
+  },
+  {
+    "name": "contact_4",
+    "phone": "12345678999"
+  }
+]
+
+
