@@ -36,5 +36,6 @@ public class PhoneContact {
 
     @ManyToOne
     @JoinColumn(name = "bookuuid", foreignKey = @ForeignKey(name = "fk_contact_bookuuid"))
+    @ToString.Exclude @EqualsAndHashCode.Exclude
     private PhoneBook phoneBook;
 }

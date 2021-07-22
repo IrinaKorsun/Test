@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
+import ru.kuzmina.constraint.ContactNumberConstraint;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.UUID;
 
@@ -44,8 +44,7 @@ public class WebPhoneContact {
             dataType = "String",
             example = "82345678912")
     @NotBlank(message = "Contact name can't be blank")
-    @Pattern(regexp = "^[0-9]{11}", message = "length must be 11")
-    @Size(max = 11)
+    @ContactNumberConstraint
     private String phone;
 
 
